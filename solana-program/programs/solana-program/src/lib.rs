@@ -13,6 +13,7 @@ const MAX_POD_NUMBER_LENGTH: usize = 12 * 4; // 12 chars max.
 const MAX_POD_NAME_LENGTH: usize = 30 * 4; // 30 chars max.
 const MAX_PROJECT_LENGTH: usize = 50 * 4; // 50 chars max.
 const MAX_PICTURE_LINK_LENGTH: usize = 120 * 4; // 120 chars max.
+const MAX_TOKEN_LENGTH: usize = 44 * 4; // 44 chars max.
 
 impl Fellow {
     const LEN: usize = DISCRIMINATOR_LENGTH
@@ -23,35 +24,16 @@ impl Fellow {
         + STRING_LENGTH_PREFIX + MAX_POD_NUMBER_LENGTH // Pod number.
         + STRING_LENGTH_PREFIX + MAX_POD_NAME_LENGTH // Pod Name.
         + STRING_LENGTH_PREFIX + MAX_PROJECT_LENGTH // Project Length.
-        + STRING_LENGTH_PREFIX + MAX_PICTURE_LINK_LENGTH; // Picture Link
+        + STRING_LENGTH_PREFIX + MAX_PICTURE_LINK_LENGTH // Picture Link Length.
+        + STRING_LENGTH_PREFIX + MAX_TOKEN_LENGTH; // Token Length.
 }
 
-#[account]
-pub struct Fellow {
-    pub author: Pubkey,
-    pub timestamp: i64,
-    pub name: String,
-    pub github_username: String,
-    pub pod_number: String,
-    pub pod_name: String,
-    pub project: String,
-    pub picture_link: String,
-}
-
-#[derive(Accounts)]
-pub struct SendFellow<'info> {
-    #[account(init, payer = author, space = Fellow::LEN)]
-    pub fellow: Account<'info, Fellow>,
-    #[account(mut)]
-    pub author: Signer<'info>,
-    pub system_program: Program<'info, System>,
-}
 
 #[program]
-pub mod fellow_graduation {
+pub mod solana_program {
     use super::*;
 
-    pub fn send_fellow(ctx: Context<Send>, tag: String, name: String, github_username: String, pod_number: String, pod_name: String, project: String, picture_link: String) -> Result<()> {
+    pub fn send_fellow(ctx: Context<SendFellow>, name: String, github_username: String, pod_number: String, pod_name: String, project: String, picture_link: String, token: String) -> Result<()> {
     let fellow: &mut Account<Fellow> = &mut ctx.accounts.fellow;
         let author: &Signer = &ctx.accounts.author;
         let clock: Clock = Clock::get().unwrap();
@@ -104,10 +86,34 @@ pub mod fellow_graduation {
         fellow.pod_name = pod_name;
         fellow.project = project;
         fellow.picture_link = picture_link;
+        fellow.token = token;
 
         Ok(())
     }
 }
+
+#[account]
+pub struct Fellow {
+    pub author: Pubkey,
+    pub timestamp: i64,
+    pub name: String,
+    pub github_username: String,
+    pub pod_number: String,
+    pub pod_name: String,
+    pub project: String,
+    pub picture_link: String,
+    pub token: String,
+}
+
+#[derive(Accounts)]
+pub struct SendFellow<'info> {
+    #[account(init, payer = author, space = Fellow::LEN)]
+    pub fellow: Account<'info, Fellow>,
+    #[account(mut)]
+    pub author: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
 
 #[error_code]
 pub enum ErrorCode {
