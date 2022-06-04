@@ -4,7 +4,7 @@ import NavBar from './components/Navbar';
 import Home from './components/Home';
 import Upload from './components/Upload';
 import AR from './components/AR';
-import MintNFT from './components/MintNft';
+import MintNFT from './components/MintNFT';
 
 function App() {
   return (
