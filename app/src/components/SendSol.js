@@ -1,3 +1,5 @@
+// Sort of admin account to send Sol -  for demo purposes only
+
 import {
   clusterApiUrl,
   Connection,
