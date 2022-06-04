@@ -1,6 +1,5 @@
 import { clusterApiUrl, 
     Connection, 
-    PublicKey, 
     Keypair, 
     LAMPORTS_PER_SOL, 
     Transaction, 
@@ -10,12 +9,11 @@ import {
     createMint, 
     getOrCreateAssociatedTokenAccount, 
     mintTo, 
-    Account, 
     createSetAuthorityInstruction, 
     AuthorityType
 } from '@solana/spl-token';
-
-function MintNft() {
+import React from "react";
+export default function MintNft() {
     const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
     // Generate a new wallet keypair and airdrop SOL
     const fromWallet = Keypair.generate();
@@ -84,5 +82,3 @@ function MintNft() {
         </div>
     );
 }
-
-export default MintNft;
