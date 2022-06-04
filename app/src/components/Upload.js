@@ -18,17 +18,20 @@ export default function Upload() {
            }
             if (response.data.some(verifyOrg)) {
               console.log("You're in!")
+              // Redirect to the nft page
             }
             else {
               console.log("You're not in!")
+              // Alert message that they are not a mlh fellow
             }
          })
          .catch(function (error) {
          // handle error
            console.log(error);
+           // Error that an account does not exist
          })
          .then(function () {
-        // always executed
+        // always executed, which could be a redirect to the homepage
         });
         console.log(github)
     }
