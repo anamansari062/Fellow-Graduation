@@ -13,7 +13,7 @@ import {
     AuthorityType
 } from '@solana/spl-token';
 import React from "react";
-export default function MintNft() {
+export default function MintNFT() {
     const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
     // Generate a new wallet keypair and airdrop SOL
     const fromWallet = Keypair.generate();

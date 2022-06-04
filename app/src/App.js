@@ -4,7 +4,7 @@ import NavBar from './components/Navbar';
 import Home from './components/Home';
 import Upload from './components/Upload';
 import AR from './components/AR';
-import MintNft from './components/MintNft';
+import MintNFT from './components/MintNft';
 
 function App() {
   return (
@@ -14,8 +14,7 @@ function App() {
       <Route component={Home} path='/' exact/>
       <Route component={Upload} path='/upload'/>
       <Route component={AR} path='/ar'/>
-      <Route component={MintNft} path='/mint'/>
-
+      <Route component={MintNFT} path='/mint'/>
       {/* <Route component={Error} path='*'/> */}
       </Switch>
     </BrowserRouter>
