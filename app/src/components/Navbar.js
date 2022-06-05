@@ -1,38 +1,81 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-
+import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
+import { Button } from './Button';
+import './Navbar.css';
 
 export default function NavBar() {
+
+    const [click, setClick] = useState(false);
+  // const [button, setButton] = useState(true);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  // const showButton = () => {
+  //   if (window.innerWidth <= 960) {
+  //     setButton(false);
+  //   } else {
+  //     setButton(true);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   showButton();
+  // }, []);
+
+  // window.addEventListener('resize', showButton);
+
+    // 
+    
     return (
-        <header className="bg-blue-600">
-            <div className="container mx-auto flex justify-between">
-                <nav className="flex">
-                    <NavLink 
-                        to="/" 
-                        exact
+        <>
+          <nav className='navbar'>
+            <div className='navbar-container'>
+              <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+                MLH Grads
+                <i class='fab fa-typo3' />
+              </Link>
+              <div className='menu-icon' onClick={handleClick}>
+                <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+              </div>
+              <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                <li className='nav-item'>
+                  <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                    Home
+                  </Link>
+                </li>
+                <li className='nav-item'>
+                  <Link
+                    to='/services'
+                    className='nav-links'
+                    onClick={closeMobileMenu}
+                  >
+                    Buy
+                  </Link>
+                </li>
+                <li className='nav-item'>
+                  <Link
+                    to='/products'
+                    className='nav-links'
+                    onClick={closeMobileMenu}
+                  >
+                    Upload
+                  </Link>
+                </li>
+    
+                <li>
+                  <Link
+                    to='/sign-up'
+                    className='nav-links'
+                    onClick={closeMobileMenu}
+                  >
+                    Help
+                  </Link>
+                </li>
+              </ul>
         
-                    >
-                        Home
-                    </NavLink>
-                    <NavLink 
-                        to="/" 
-                        
-                    >
-                        Page 1
-                    </NavLink>
-                    <NavLink 
-                        to="/" 
-                
-                    >
-                        Page 2
-                    </NavLink>
-                    <NavLink 
-                        to="/" 
-                    >
-                        Page 3
-                    </NavLink>
-                </nav>
             </div>
-        </header>
-    )
+          </nav>
+        </>
+      );
 }
