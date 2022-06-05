@@ -46,7 +46,7 @@ export default function NavBar() {
                 </li>
                 <li className='nav-item'>
                   <Link
-                    to='/services'
+                    to='/buy'
                     className='nav-links'
                     onClick={closeMobileMenu}
                   >
@@ -55,7 +55,7 @@ export default function NavBar() {
                 </li>
                 <li className='nav-item'>
                   <Link
-                    to='/products'
+                    to='/upload'
                     className='nav-links'
                     onClick={closeMobileMenu}
                   >
@@ -65,7 +65,7 @@ export default function NavBar() {
     
                 <li>
                   <Link
-                    to='/sign-up'
+                    to='/help'
                     className='nav-links'
                     onClick={closeMobileMenu}
                   >
