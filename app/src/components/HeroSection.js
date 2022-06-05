@@ -23,7 +23,7 @@ function HeroSection() {
           buttonSize='btn--large'
           onClick={console.log('hey')}
         >
-          Sell <i className='far fa-play-circle' />
+          Upload <i className='far fa-play-circle' />
         </Button>
       </div>
     </div>
