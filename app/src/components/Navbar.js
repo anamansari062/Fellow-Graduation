@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
-import { Link, NavLink } from "react-router-dom";
-import { Button } from './Button';
+import React, {useState} from "react";
+import { NavLink } from "react-router-dom";
+
 import './Navbar.css';
 
 export default function NavBar() {
@@ -40,7 +40,7 @@ export default function NavBar() {
               </div>
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li className='nav-item'>
-                  <NavLink to='/' className='nav-links'>
+                  <NavLink to='/'exact className='nav-links'>
                     Home
                   </NavLink>
                 </li>
