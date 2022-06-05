@@ -8,7 +8,7 @@ function Footer() {
     <div className='footer-container'>
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
-          Powered By Solana
+          Powered By Solana Blockchain
         </p>
         {/* <p className='footer-subscription-text'>
           You can unsubscribe at any time.

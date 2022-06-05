@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Switch} from "react-router-dom"
 import NavBar from './components/Navbar';
 import Home from './pages/Home';
 import Upload from './components/Upload';
+import Help from './pages/Help';
+import Buy from './pages/Buy';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Switch>
       <Route component={Home} path='/' exact/>
       <Route component={Upload} path='/upload'/>
+      <Route component={Help} path='/help'/>
+      <Route component={Buy} path='/buy'/>
       {/* <Route component={Error} path='*'/> */}
       </Switch>
     </BrowserRouter>
