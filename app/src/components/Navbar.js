@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Button } from './Button';
 import './Navbar.css';
 
@@ -31,46 +31,46 @@ export default function NavBar() {
         <>
           <nav className='navbar'>
             <div className='navbar-container'>
-              <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+              <NavLink to='/' className='navbar-logo' onClick={closeMobileMenu}>
                 MLH Grads
                 <i class='fab fa-typo3' />
-              </Link>
+              </NavLink>
               <div className='menu-icon' onClick={handleClick}>
                 <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
               </div>
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li className='nav-item'>
-                  <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                  <NavLink to='/' className='nav-links'>
                     Home
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className='nav-item'>
-                  <Link
+                  <NavLink
                     to='/buy'
                     className='nav-links'
-                    onClick={closeMobileMenu}
+                    
                   >
                     Buy
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className='nav-item'>
-                  <Link
+                  <NavLink
                     to='/upload'
                     className='nav-links'
-                    onClick={closeMobileMenu}
+                    
                   >
                     Upload
-                  </Link>
+                  </NavLink>
                 </li>
     
                 <li>
-                  <Link
+                  <NavLink
                     to='/help'
                     className='nav-links'
-                    onClick={closeMobileMenu}
+          
                   >
                     Help
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
         
