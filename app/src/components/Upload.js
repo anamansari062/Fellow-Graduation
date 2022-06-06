@@ -18,8 +18,10 @@ export default function Upload() {
     // const [image, setImage] = useState(null)
 
     const submitForm = (event) => {
+
+      console.log(formValues.github)
         event.preventDefault();
-        const username = initialValues.github
+        const username = formValues.github
         axios.get(`https://api.github.com/users/${username}/orgs`)
          .then(function (response) {
          // handle success
