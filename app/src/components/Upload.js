@@ -1,9 +1,12 @@
 import React,{ useState } from "react";
 import './Upload.css';
+// import { useHistory } from "react-router-dom";
 
 const axios = require('axios').default;
 
 export default function Upload() {
+
+  // const history = useHistory();
 
   const initialValues = { name: "", github: "", pod: "", pname:"", proj:"", plink:"" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -31,6 +34,8 @@ export default function Upload() {
            }
             if (response.data.some(verifyOrg)) {
               console.log("You're in!")
+              window.location.href="https://opensea.io/collection/mlhfellowship-grads"
+              
               // Redirect to the nft page
             }
             else {
