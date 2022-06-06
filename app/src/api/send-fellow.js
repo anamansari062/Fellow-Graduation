@@ -1,6 +1,8 @@
 import { Fellow } from '../models'
 import { useWorkspace } from './useWorkspace'
 
+import { web3 } from '@project-serum/anchor'
+
 // 1. Define the sendFellow endpoint.
 export const SendFellow = async(name, github_username, pod_number, pod_name, project, picture_link) => {
     const { wallet, program } = useWorkspace()

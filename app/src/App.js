@@ -8,6 +8,8 @@ import Buy from './pages/Buy';
 import AR from './components/AR';
 import MintNFT from './components/MintNFT';
 import SendSol from './components/SendSol';
+import { InitWorkspace } from './api';
+InitWorkspace()
 function App() {
   return (
     <BrowserRouter>

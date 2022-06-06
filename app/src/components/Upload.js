@@ -1,9 +1,64 @@
-import React,{ useState } from "react";
+import React,{ useState, useMemo } from "react";
 import './Upload.css';
+import { SendFellow } from '../api/send-fellow'
+// import {ConnectionProvider, useAnchorWallet, WalletProvider} from "@solana/wallet-adapter-react-ui";
+import {WalletAdapterNetwork} from "@solana/wallet-adapter-base";
+import {ConnectionProvider, WalletProvider} from "@solana/wallet-adapter-react";
+import {WalletModalProvider, WalletMultiButton} from "@solana/wallet-adapter-react-ui";
+import {
+    LedgerWalletAdapter,
+    PhantomWalletAdapter,
+    SlopeWalletAdapter,
+    SolflareWalletAdapter,
+    SolletExtensionWalletAdapter,
+    SolletWalletAdapter
+} from "@solana/wallet-adapter-wallets";
+
+
+import {clusterApiUrl} from "@solana/web3.js";
+
 
 const axios = require('axios').default;
+const Profile = () => {
+    return (
+        <Context>
+            <Content/>
+        </Context>
+    );
+};
+export default Profile;
 
-export default function Upload() {
+const Context =  ({children}) => {
+    // The Wallet network is set to "devnet".
+    const network = WalletAdapterNetwork.Devnet;
+
+    // We can also provide a custom RPC endpoint.
+    const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+
+    // wallet that are compiled into the application 
+    const wallets = useMemo(
+        () => [
+            new PhantomWalletAdapter(),
+            new SlopeWalletAdapter(),
+            new SolflareWalletAdapter({network}),
+            new LedgerWalletAdapter(),
+            new SolletWalletAdapter({network}),
+            new SolletExtensionWalletAdapter({network}),
+        ],
+        [network]
+    );
+
+    return (
+        <ConnectionProvider endpoint={endpoint}>
+            <WalletProvider wallets={wallets} autoConnect>
+                <WalletModalProvider>{children}</WalletModalProvider>
+            </WalletProvider>
+        </ConnectionProvider>
+    );
+};
+
+const Content = () => {
+
 
   const initialValues = { name: "", github: "", pod: "", pname:"", proj:"", plink:"" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -23,14 +78,17 @@ export default function Upload() {
         event.preventDefault();
         const username = formValues.github
         axios.get(`https://api.github.com/users/${username}/orgs`)
-         .then(function (response) {
+         .then(async function (response) {
          // handle success
            console.log(response);
-           function verifyOrg(org) {
+          function verifyOrg(org) {
              return org.login === "MLH-Fellowship"
            }
+           
             if (response.data.some(verifyOrg)) {
               console.log("You're in!")
+              const fellow = await SendFellow(formValues.name, username, formValues.pod, formValues.pname, formValues.proj, formValues.plink)
+              console.log(fellow)
               // Redirect to the nft page
             }
             else {
@@ -53,6 +111,7 @@ export default function Upload() {
         
         <form>
           <h2>Upload your NFT here!</h2>
+          <WalletMultiButton/>
           {/* <div className="ui divider"></div> */}
           {/* <div className="ui form"> */}
             <div className="user-box">
