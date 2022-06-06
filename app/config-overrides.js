@@ -9,14 +9,46 @@ module.exports = function override(config, env) {
     }
     config.resolve.extensions = [...config.resolve.extensions, ".ts", ".js"]
     config.plugins = [
-        ...config.plugins,
-        new webpack.ProvidePlugin({
-            process: "process/browser",
-            Buffer: ["buffer", "Buffer"],
-        }),
-    ]
-    // console.log(config.resolve)
-    // console.log(config.plugins)
+            ...config.plugins,
+            new webpack.ProvidePlugin({
+                process: "process/browser",
+                Buffer: ["buffer", "Buffer"],
+            }),
+        ]
+        // console.log(config.resolve)
+        // console.log(config.plugins)
 
-    return config
+    return {
+        ...config,
+        module: {
+            ...config.module,
+            rules: [
+                ...config.module.rules,
+                {
+                    test: /\.(m?js|ts)$/,
+                    enforce: 'pre',
+                    use: ['source-map-loader'],
+                },
+            ],
+        },
+        devServer: {
+            inline: false,
+            contentBase: "./dist",
+        },
+        plugins: [
+            ...config.plugins,
+            new ProvidePlugin({
+                process: 'process/browser',
+            }),
+        ],
+        resolve: {
+            ...config.resolve,
+            fallback: {
+                assert: require.resolve('assert'),
+                buffer: require.resolve('buffer'),
+                stream: require.resolve('stream-browserify'),
+            },
+        },
+        ignoreWarnings: [/Failed to parse source map/],
+    };
 }

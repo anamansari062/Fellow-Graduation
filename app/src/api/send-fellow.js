@@ -1,8 +1,8 @@
-import { Fellow } from '@/models'
+import { Fellow } from '../models'
 import { useWorkspace } from './useWorkspace'
 
 // 1. Define the sendFellow endpoint.
-export const sendFellow = async(name, github_username, pod_number, pod_name, project, picture_link) => {
+export const SendFellow = async(name, github_username, pod_number, pod_name, project, picture_link) => {
     const { wallet, program } = useWorkspace()
 
     // 2. Generate a new Keypair for our new fellow account.
