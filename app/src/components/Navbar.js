@@ -31,22 +31,22 @@ export default function NavBar() {
         <>
           <nav className='navbar'>
             <div className='navbar-container'>
-              <NavLink to='/' className='navbar-logo' onClick={closeMobileMenu}>
+              <NavLink to="/" className='navbar-logo'>
                 MLH Grads
                 <i class='fab fa-typo3' />
               </NavLink>
-              <div className='menu-icon' onClick={handleClick}>
+              <div className='menu-icon'>
                 <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
               </div>
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li className='nav-item'>
-                  <NavLink to='/'exact className='nav-links'>
+                  <NavLink to="/"exact className='nav-links'>
                     Home
                   </NavLink>
                 </li>
                 <li className='nav-item'>
                   <NavLink
-                    to='/buy'
+                    to="/buy"
                     className='nav-links'
                     
                   >
@@ -55,7 +55,7 @@ export default function NavBar() {
                 </li>
                 <li className='nav-item'>
                   <NavLink
-                    to='/upload'
+                    to="/upload"
                     className='nav-links'
                     
                   >
@@ -65,7 +65,7 @@ export default function NavBar() {
     
                 <li>
                   <NavLink
-                    to='/help'
+                    to="/help"
                     className='nav-links'
           
                   >

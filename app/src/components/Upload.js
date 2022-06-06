@@ -1,14 +1,25 @@
 import React,{ useState } from "react";
+import './Upload.css';
+
 const axios = require('axios').default;
 
 export default function Upload() {
 
-    const [github, setGithub] = useState("");
-    const [image, setImage] = useState(null)
+  const initialValues = { name: "", github: "", pod: "", pname:"", proj:"", plink:"" };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+    // const [github, setGithub] = useState("");
+    // const [image, setImage] = useState(null)
 
     const submitForm = (event) => {
         event.preventDefault();
-        const username = github
+        const username = initialValues.github
         axios.get(`https://api.github.com/users/${username}/orgs`)
          .then(function (response) {
          // handle success
@@ -33,23 +44,85 @@ export default function Upload() {
          .then(function () {
         // always executed, which could be a redirect to the homepage
         });
-        console.log(github)
+        console.log(initialValues.github)
     }
     return (
+      <div className="login-box">
+        
         <form>
+          <h2>Upload your NFT here!</h2>
+          {/* <div className="ui divider"></div> */}
+          {/* <div className="ui form"> */}
+            <div className="user-box">
+              
             <input 
                 type="text"
-                placeholder="Github Username"
-                value = {github}
-                onChange={(e)=> setGithub(e.target.value)}
+                placeholder="Name"
+                name="name"
+                value = {formValues.name}
+                onChange={handleChange}
             />
-            <br/>
-            <label>
+            <label>Name</label>
+            <p>{formErrors.name}</p>
+            </div>
+            <div className="user-box">
+              
+            <input 
+                type="text"
+                placeholder="Github"
+                name="github"
+                value = {formValues.github}
+                onChange={handleChange}
+            />
+            <label>Github</label>
+            <p>{formErrors.github}</p>
+            </div>
+            <div className="user-box">
+              
+            <input 
+                type="text"
+                placeholder="Pod Number"
+                name="pod"
+                value = {formValues.pod}
+                onChange={handleChange}
+            />
+            <label>Pod Number</label>
+            <p>{formErrors.pod}</p>
+            </div>
+            <div className="user-box">
+              
+            <input 
+                type="text"
+                placeholder="Pod Name"
+                name="pname"
+                value = {formValues.pname}
+                onChange={handleChange}
+            />
+            <label>Pod Name</label>
+            <p>{formErrors.pname}</p>
+            </div>
+            <div className="user-box">
+              
+            <input 
+                type="text"
+                placeholder="Project"
+                name="proj"
+                value = {formValues.proj}
+                onChange={handleChange}
+            />
+            <label>Project</label>
+            <p>{formErrors.proj}</p>
+            </div>
+            {/* <div className="user-box"> */}
+            <label className="file">
             <input type="file"/>
             <span>+</span>
             </label>
+            {/* </div> */}
             <br/>
             <button onClick={submitForm}>Submit</button>
+            {/* </div> */}
         </form>
+        </div>
     )
 }
