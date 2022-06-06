@@ -1,9 +1,13 @@
 import { Fellow } from '@/models'
 import { useWorkspace } from './useWorkspace'
+import { web3 } from '@project-serum/anchor'
 
 // 1. Define the sendFellow endpoint.
-export const sendFellow = async(name, github_username, pod_number, pod_name, project, picture_link, token) => {
-    const { wallet, program } = useWorkspace()
+export const SendFellow = async(name, github_username, pod_number, pod_name, project, picture_link, token) => {
+    // const wallet = useAnchorWallet()
+    // const provider = getProvider(wallet);
+    // const program = new Program(idl, programID, provider.value);
+    const { program } = useWorkspace()
 
     // 2. Generate a new Keypair for our new fellow account.
     const fellow = web3.Keypair.generate()

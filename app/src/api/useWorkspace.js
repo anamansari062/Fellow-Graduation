@@ -1,7 +1,7 @@
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import { Connection, PublicKey } from '@solana/web3.js'
-import { Provider, Program } from '@project-serum/anchor'
-import idl from '@/idl/solana_program.json'
+import { AnchorProvider, Program } from '@project-serum/anchor'
+import idl from '../idl/solana_program.json'
 
 const clusterUrl = "https://api.devnet.solana.com"
 const preflightCommitment = 'processed'
@@ -11,16 +11,16 @@ let workspace = null
 
 export const useWorkspace = () => workspace
 
-export const initWorkspace = () => {
+export const InitWorkspace = () => {
     const wallet = useAnchorWallet()
     const connection = new Connection(clusterUrl, commitment)
-    const provider = computed(() => new Provider(connection, wallet.value, { preflightCommitment, commitment }))
-    const program = computed(() => new Program(idl, programID, provider.value))
+    const provider = new AnchorProvider(connection, wallet.value, { preflightCommitment, commitment })
+    const program = new Program(idl, programID, provider.value)
 
     workspace = {
         wallet,
         connection,
         provider,
         program,
-    }
+    };
 }
