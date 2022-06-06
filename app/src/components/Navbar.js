@@ -31,46 +31,46 @@ export default function NavBar() {
         <>
           <nav className='navbar'>
             <div className='navbar-container'>
-              <NavLink to="/" className='navbar-logo'>
+              <a href="/" className='navbar-logo'>
                 MLH Grads
                 <i class='fab fa-typo3' />
-              </NavLink>
+              </a>
               <div className='menu-icon'>
                 <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
               </div>
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li className='nav-item'>
-                  <NavLink to="/"exact className='nav-links'>
+                  <a href="/" exact className='nav-links'>
                     Home
-                  </NavLink>
+                  </a>
                 </li>
                 <li className='nav-item'>
-                  <NavLink
-                    to="/buy"
+                  <a
+                    href="/buy"
                     className='nav-links'
                     
                   >
                     Buy
-                  </NavLink>
+                  </a>
                 </li>
                 <li className='nav-item'>
-                  <NavLink
-                    to="/upload"
+                  <a
+                    href="/upload"
                     className='nav-links'
                     
                   >
                     Upload
-                  </NavLink>
+                  </a>
                 </li>
     
                 <li>
-                  <NavLink
-                    to="/help"
+                  <a
+                    href="/help"
                     className='nav-links'
           
                   >
                     Help
-                  </NavLink>
+                  </a>
                 </li>
               </ul>
         

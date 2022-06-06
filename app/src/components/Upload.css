@@ -67,6 +67,7 @@
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
+    /* display: flex; */
   }
   
   .login-box h2 {
@@ -213,12 +214,10 @@
       bottom: 100%;
     }
   }
-.login-box button{
 
-}
 
-.login-box .file label {
-display: block;
+.login-box .file {
+  display: block;
   width: 30px;
   height: 30px;
   border: 1px solid var(--primary);
@@ -228,4 +227,27 @@ display: block;
   color: var(--primary);
   font-weight: bold;
   font-size: 24px;
+  position: relative;
+  }
+
+  .login-box .file input{
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+
+  .login-box .file span{
+    position: absolute;
+    left: 7.5px;
+  }
+
+  .login-box button{
+    padding: 10px;
+    border: 0px;
+    border-radius: 5px;
+    background-color: #03e9f4;
+    position: relative;
+    left: 40%;
+    right: 40%;
+    
   }
