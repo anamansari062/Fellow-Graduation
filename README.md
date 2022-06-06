@@ -9,7 +9,7 @@
 </center>
 
 
-What could be better than an exclusive NFTs for MLH graduates in AR!
+What could be better than an exclusive NFTs for MLH graduates in AR!  
 MLH Grads is a decentralised application (dApp) that makes it simple to create your MLH Graduation NFT on the Solana Blockchain. It supports two wallets, each of which offers a simple way to complete a transaction. You can easily sell and buy MLH fellows NFTs on this platform. We verify the NFT by GitHub username as the username should belong to the MLH fellowship organisation!
 
 
