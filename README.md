@@ -63,13 +63,13 @@ If you find a bug in the dApp/website, kindly open an issue by
 including a proper description about the bug and the expected result. Similarly, we would be glad to hear about new
 features to add in the project, kindly follow same procedure for it too.
 
-## <img src="https://techstackapps.com/media/2019/11/TechStackApps-logo-icon.png" width="64" height="48"> Tech stack
-1. <img src="https://s2.coinmarketcap.com/static/img/coins/200x200/5426.png" width="64" height="48"> Solana
-2. <img src="https://reactjs.org/logo-og.png" width="64" height="48"> React
-3. <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/2048px-Rust_programming_language_black_logo.svg.png" width="64" height="48"> Rust
-4. <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="64" height="48"> Javascript
-5. <img src="https://solana.ghost.io/content/images/downloaded_images/July-Newsletter/0-GGeNqyfmiHJBhSec.png" width="64" height="48"> Anchor
-6. <img src="https://pbs.twimg.com/media/EjpofSnWsAQpsBa.jpg" width="64" height="48"> AR.js
+## <img src="https://techstackapps.com/media/2019/11/TechStackApps-logo-icon.png" width="58" height="48"> Tech stack
+1. <img src="https://s2.coinmarketcap.com/static/img/coins/200x200/5426.png" width="58" height="48"> Solana
+2. <img src="https://reactjs.org/logo-og.png" width="58" height="48"> React
+3. <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/2048px-Rust_programming_language_black_logo.svg.png" width="58" height="48"> Rust
+4. <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="58" height="48"> Javascript
+5. <img src="https://solana.ghost.io/content/images/downloaded_images/July-Newsletter/0-GGeNqyfmiHJBhSec.png" width="58" height="48"> Anchor
+6. <img src="https://pbs.twimg.com/media/EjpofSnWsAQpsBa.jpg" width="58" height="48"> AR.js
 
 ## 🛡️ License
 
