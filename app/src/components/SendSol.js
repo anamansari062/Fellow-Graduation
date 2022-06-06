@@ -33,7 +33,7 @@ function SendSol() {
     );
 
     await connection.confirmTransaction(airdropSignature);
-    associatedTokenAccount = await getAssociatedTokenAddress(
+    let associatedTokenAccount = await getAssociatedTokenAddress(
       NATIVE_MINT,
       fromWallet.publicKey
     );
@@ -66,6 +66,7 @@ function SendSol() {
     await sendAndConfirmTransaction(connection, solTransferTransaction, [fromWallet]);
     const accountInfo = await getAccount(connection, associatedTokenAccount);
     console.log(`Native: ${accountInfo.isNative}, Lamports: ${accountInfo.amount}`);
+    alert("Sol wrapped");
   }
 
   async function unwrapSol() {
@@ -80,6 +81,7 @@ function SendSol() {
     );
     const walletBalancePostClose = await connection.getBalance(fromWallet.publicKey);
     console.log(`Balance after unwrapping WSOL: ${walletBalancePostClose}`)
+    alert("Sol unwrapped");
   }
 
   async function sendSol() {
@@ -113,6 +115,7 @@ function SendSol() {
       LAMPORTS_PER_SOL
     );
     console.log('Transfer tx:', signature);
+    alert("Sol sent");
   }
 
   return (

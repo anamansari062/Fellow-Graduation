@@ -13,6 +13,8 @@ import {
     AuthorityType
 } from '@solana/spl-token';
 import React from "react";
+// Special setup to add a Buffer class, because it's missing
+window.Buffer = window.Buffer || require("buffer").Buffer;
 export default function MintNFT() {
     const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
     // Generate a new wallet keypair and airdrop SOL
@@ -44,6 +46,7 @@ export default function MintNFT() {
         );
 
         console.log(`Create NFT Account: ${fromTokenAccount.address.toBase58()}`);
+        alert("NFT mint created");
     }
     async function mintNft() {
         // Mint 1 new token to the "fromTokenAccount" account we just created
@@ -56,6 +59,7 @@ export default function MintNFT() {
             1
         );
         console.log(`Mint signature: ${signature}`);
+        alert("NFT minted");
     }
     async function lockNft() {
         // Create our transaction to change minting permissions
@@ -69,6 +73,7 @@ export default function MintNFT() {
         // Send transaction
         const signature = await sendAndConfirmTransaction(connection, transaction, [fromWallet]);
         console.log(`Lock signature: ${signature}`);
+        alert("NFT locked");
     }
 
     return (
