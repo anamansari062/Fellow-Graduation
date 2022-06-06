@@ -122,7 +122,7 @@ export default function Upload() {
             </label>
             {/* </div> */}
             <br/>
-            <button onClick={submitForm}>Submit</button>
+            <button classname="fileButton" onClick={submitForm}>Submit</button>
             {/* </div> */}
         </form>
         </div>
