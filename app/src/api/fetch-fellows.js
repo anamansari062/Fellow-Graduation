@@ -1,8 +1,8 @@
-import { Fellow } from '@/models'
+import { Fellow } from '../models'
 import { useWorkspace } from './useWorkspace'
 import bs58 from 'bs58'
 
-export const fetchFellows = async(filters = []) => {
+export const FetchFellows = async(filters = []) => {
     const { program } = useWorkspace()
 
     const fellow = await program.value.account.fellow.all(filters);
