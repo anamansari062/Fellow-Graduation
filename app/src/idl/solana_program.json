@@ -45,10 +45,6 @@
         {
           "name": "pictureLink",
           "type": "string"
-        },
-        {
-          "name": "token",
-          "type": "string"
         }
       ]
     }
@@ -89,10 +85,6 @@
           },
           {
             "name": "pictureLink",
-            "type": "string"
-          },
-          {
-            "name": "token",
             "type": "string"
           }
         ]

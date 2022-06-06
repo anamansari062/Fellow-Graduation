@@ -12,7 +12,7 @@ describe("solanaProgram", () => {
 
   it('can send a new fellow', async () => {
       const fellow = anchor.web3.Keypair.generate();
-      await program.rpc.sendFellow('Anam Ansari', 'anamansari062', '22.SUM.10', 'Pod-Name', 'Solana Replay', 'Link', 'token', {
+      await program.rpc.sendFellow('Anam Ansari', 'anamansari062', '22.SUM.10', 'Pod-Name', 'Solana Replay', 'https://www.dropbox.com/s/a7pv3yvh5yt31n7/profile.jpeg?dl=0', {
           accounts: {
               fellow: fellow.publicKey,
               author: program.provider.wallet.publicKey,
@@ -29,8 +29,8 @@ describe("solanaProgram", () => {
       assert.equal(fellowAccount.podNumber, '22.SUM.10');
       assert.equal(fellowAccount.podName, 'Pod-Name');
       assert.equal(fellowAccount.project, 'Solana Replay');
-      assert.equal(fellowAccount.pictureLink, 'Link');
-      assert.equal(fellowAccount.token, 'token');
+      assert.equal(fellowAccount.pictureLink, 'https://www.dropbox.com/s/a7pv3yvh5yt31n7/profile.jpeg?dl=0');
+    //   assert.equal(fellowAccount.token, 'token');
       assert.ok(fellowAccount.timestamp);
   });
 
@@ -44,7 +44,7 @@ describe("solanaProgram", () => {
     const signature = await program.provider.connection.requestAirdrop(otherUser.publicKey, 1000000000);
     await program.provider.connection.confirmTransaction(signature);
     
-    await program.rpc.sendFellow('New Fellow', 'fellow', '22.SUM.10', 'Pod-Name', 'Project', 'Link', 'token', {
+    await program.rpc.sendFellow('New Fellow', 'fellow', '22.SUM.10', 'Pod-Name', 'Project', 'https://www.dropbox.com/s/a7pv3yvh5yt31n7/profile.jpeg?dl=0', {
         accounts: {
             fellow: fellow.publicKey,
             author: otherUser.publicKey,
@@ -63,8 +63,8 @@ describe("solanaProgram", () => {
     assert.equal(fellowAccount.podNumber, '22.SUM.10');
     assert.equal(fellowAccount.podName, 'Pod-Name');
     assert.equal(fellowAccount.project, 'Project');
-    assert.equal(fellowAccount.pictureLink, 'Link');
-    assert.equal(fellowAccount.token, 'token');
+    assert.equal(fellowAccount.pictureLink, 'https://www.dropbox.com/s/a7pv3yvh5yt31n7/profile.jpeg?dl=0');
+    // assert.equal(fellowAccount.token, 'token');
     assert.ok(fellowAccount.timestamp);
   });
 

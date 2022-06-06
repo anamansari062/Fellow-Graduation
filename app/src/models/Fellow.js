@@ -12,7 +12,7 @@ export class Fellow {
         this.pod_name = accountData.pod_name
         this.project = accountData.project
         this.picture_link = accountData.picture_link
-        this.token = accountData.token
+            // this.token = accountData.token
     }
 
     get key() {
