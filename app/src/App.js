@@ -1,10 +1,11 @@
 import './App.css';
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 import NavBar from './components/Navbar';
-import Home from './components/Home';
+import Home from './pages/Home';
 import Upload from './components/Upload';
-import MintNFT from './components/MintNFT';
-
+import Help from './pages/Help';
+import Buy from './pages/Buy';
+import AR from './components/AR';
 function App() {
   return (
     <BrowserRouter>
@@ -12,7 +13,9 @@ function App() {
       <Switch>
       <Route component={Home} path='/' exact/>
       <Route component={Upload} path='/upload'/>
-      <Route component={MintNFT} path='/mint'/>
+      <Route component={Help} path='/help'/>
+      <Route component={Buy} path='/buy'/>
+      <Route component={AR} path='/ar'/>
       {/* <Route component={Error} path='*'/> */}
       </Switch>
     </BrowserRouter>

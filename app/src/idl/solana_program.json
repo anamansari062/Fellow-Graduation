@@ -1,0 +1,157 @@
+{
+  "version": "0.1.0",
+  "name": "solana_program",
+  "instructions": [
+    {
+      "name": "sendFellow",
+      "accounts": [
+        {
+          "name": "fellow",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "author",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "githubUsername",
+          "type": "string"
+        },
+        {
+          "name": "podNumber",
+          "type": "string"
+        },
+        {
+          "name": "podName",
+          "type": "string"
+        },
+        {
+          "name": "project",
+          "type": "string"
+        },
+        {
+          "name": "pictureLink",
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Fellow",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "publicKey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "githubUsername",
+            "type": "string"
+          },
+          {
+            "name": "podNumber",
+            "type": "string"
+          },
+          {
+            "name": "podName",
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "type": "string"
+          },
+          {
+            "name": "pictureLink",
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "NameTooLong",
+      "msg": "The provided name should be 30 characters long maximum."
+    },
+    {
+      "code": 6001,
+      "name": "GithubUsernameTooLong",
+      "msg": "The provided github username should be 39 characters long maximum."
+    },
+    {
+      "code": 6002,
+      "name": "PodNumberTooLong",
+      "msg": "The provided pod number should be 12 characters long maximum."
+    },
+    {
+      "code": 6003,
+      "name": "PodNameTooLong",
+      "msg": "The provided pod name should be 30 characters long maximum."
+    },
+    {
+      "code": 6004,
+      "name": "ProjectTooLong",
+      "msg": "The provided project should be 50 characters long maximum."
+    },
+    {
+      "code": 6005,
+      "name": "NameEmpty",
+      "msg": "Name cannot not be empty."
+    },
+    {
+      "code": 6006,
+      "name": "GithubUsernameEmpty",
+      "msg": "Github Username cannot be empty."
+    },
+    {
+      "code": 6007,
+      "name": "PodNumberEmpty",
+      "msg": "Pod Number cannot not be empty."
+    },
+    {
+      "code": 6008,
+      "name": "PodNameEmpty",
+      "msg": "Pod Name cannot not be empty."
+    },
+    {
+      "code": 6009,
+      "name": "ProjectEmpty",
+      "msg": "Project cannot be empty."
+    }
+  ],
+  "metadata": {
+    "address": "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+  }
+}
