@@ -84,10 +84,10 @@ export default function MintNFT() {
         <div className="login-box">
             <h2>Mint Nft Section</h2>
             <form>
-            <div>
-                <button classname="fileButton" onClick={createNft}>Create NFT</button>
-                <button classname="fileButton"  onClick={mintNft}>Mint NFT</button>
-                <button classname="fileButton"  onClick={lockNft}>Lock NFT</button>
+            <div className='common'>
+                <button className="fileButton" onClick={createNft}>Create NFT</button>
+                <button className="fileButton"  onClick={mintNft}>Mint NFT</button>
+                <button className="fileButton"  onClick={lockNft}>Lock NFT</button>
             </div>
             </form>
         </div>
