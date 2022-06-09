@@ -35,18 +35,13 @@ module.exports = function override(config, env) {
             inline: false,
             contentBase: "./dist",
         },
-        plugins: [
-            ...config.plugins,
-            new ProvidePlugin({
-                process: 'process/browser',
-            }),
-        ],
         resolve: {
             ...config.resolve,
             fallback: {
                 assert: require.resolve('assert'),
                 buffer: require.resolve('buffer'),
                 stream: require.resolve('stream-browserify'),
+                crypto: require.resolve('crypto-browserify'),
             },
         },
         ignoreWarnings: [/Failed to parse source map/],
