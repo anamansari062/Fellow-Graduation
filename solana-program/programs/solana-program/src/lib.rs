@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("AxhFHpAQtpQag1uZQpjeKxf51YDvt1UgPMiYYcGCKnCR");
 
 // Add some useful constants for sizing propeties.
 const DISCRIMINATOR_LENGTH: usize = 8;

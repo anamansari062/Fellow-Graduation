@@ -1,20 +1,28 @@
 import React,{ useState, useMemo } from "react";
 import './Upload.css';
 import { SendFellow } from '../api/send-fellow'
-import Context from "./Context"
 // import { useHistory } from "react-router-dom";
+
+import { useAnchorWallet } from "@solana/wallet-adapter-react";
+import get_provider from '../api/getProvider';
+import Context from '../components/Context';
+
 const axios = require('axios').default;
+
 
 const Profile = () => {
     return (
     <Context>
-            <Content/>
-            </Context>
+        <Content/>
+        </Context>
     );
 };
 export default Profile;
 
+
+
 const Content = () => {
+
 
   // const history = useHistory();
 
@@ -26,6 +34,8 @@ const Content = () => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
+  const wallet = useAnchorWallet()
+  const provider = get_provider(wallet)
 
     // const [github, setGithub] = useState("");
     // const [image, setImage] = useState(null)
@@ -44,9 +54,9 @@ const Content = () => {
            }
             if (response.data.some(verifyOrg)) {
               console.log("You're in!")
-              const fellow = SendFellow(formValues.name, username, formValues.pod, formValues.pname, formValues.proj, formValues.plink)
+              const fellow = SendFellow(provider, formValues.name, username, formValues.pod, formValues.pname, formValues.proj, "https: //www.dropbox.com/h?preview=profile.jpeg")
               console.log(fellow)
-              window.location.href="https://opensea.io/collection/mlhfellowship-grads"
+              // window.location.href="https://opensea.io/collection/mlhfellowship-grads"
               // Redirect to the nft page
             }
             else {
