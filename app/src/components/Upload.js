@@ -1,9 +1,19 @@
-import React,{ useState } from "react";
+import React,{ useState, useMemo } from "react";
 import './Upload.css';
-
+import { SendFellow } from '../api/send-fellow'
+import Context from "./Context"
 const axios = require('axios').default;
 
-export default function Upload() {
+const Profile = () => {
+    return (
+    <Context>
+            <Content/>
+            </Context>
+    );
+};
+export default Profile;
+
+const Content = () => {
 
   const initialValues = { name: "", github: "", pod: "", pname:"", proj:"", plink:"" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -26,11 +36,13 @@ export default function Upload() {
          .then(function (response) {
          // handle success
            console.log(response);
-           function verifyOrg(org) {
+            function verifyOrg(org) {
              return org.login === "MLH-Fellowship"
            }
             if (response.data.some(verifyOrg)) {
               console.log("You're in!")
+              const fellow = SendFellow(formValues.name, username, formValues.pod, formValues.pname, formValues.proj, formValues.plink)
+              console.log(fellow)
               // Redirect to the nft page
             }
             else {

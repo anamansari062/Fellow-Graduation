@@ -1,9 +1,24 @@
 import { Fellow } from '../models'
-import { useWorkspace } from './useWorkspace'
+// import { InitWorkspace, useWorkspace } from './useWorkspace'
+import { web3 } from "@project-serum/anchor";
+import { useAnchorWallet } from "@solana/wallet-adapter-react";
+import { Connection, PublicKey } from '@solana/web3.js'
+import { AnchorProvider, Program } from '@project-serum/anchor'
+import idl from '../idl/solana_program.json'
+
+const clusterUrl = "https://api.devnet.solana.com"
+const preflightCommitment = 'processed'
+const commitment = 'processed'
+const programID = new PublicKey(idl.metadata.address)
 
 // 1. Define the sendFellow endpoint.
 export const SendFellow = async(name, github_username, pod_number, pod_name, project, picture_link) => {
-    const { wallet, program } = useWorkspace()
+    // InitWorkspace()
+    // const { wallet, program } = useWorkspace()
+    const wallet = useAnchorWallet()
+    const connection = new Connection(clusterUrl, commitment)
+    const provider = new AnchorProvider(connection, wallet.value, { preflightCommitment, commitment })
+    const program = new Program(idl, programID, provider.value)
 
     // 2. Generate a new Keypair for our new fellow account.
     const fellow = web3.Keypair.generate()
