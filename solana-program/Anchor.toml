@@ -1,10 +1,10 @@
 [features]
 seeds = false
 [programs.localnet]
-solana_program = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+solana_program = "AxhFHpAQtpQag1uZQpjeKxf51YDvt1UgPMiYYcGCKnCR"
 
 [programs.devnet]
-solana_program = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+solana_program = "AxhFHpAQtpQag1uZQpjeKxf51YDvt1UgPMiYYcGCKnCR"
 
 [registry]
 url = "https://anchor.projectserum.com"
