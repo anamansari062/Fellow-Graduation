@@ -22,7 +22,7 @@ export const SendFellow = async(provider, name, github_username, pod_number, pod
     const idlJSON = JSON.parse(jsonString);
 
     // const programID = new PublicKey(idlJson.metadata.address)
-    const program = new Program(idlJSON, idl.metadata.address, provider.value)
+    const program = new Program(idlJSON, idl.metadata.address, provider)
 
     // 2. Generate a new Keypair for our new fellow account.
     const fellow = web3.Keypair.generate()
