@@ -41,7 +41,7 @@ const Content = () => {
     // const [image, setImage] = useState(null)
 
     const submitForm = (event) => {
-
+    if(wallet){
       console.log(formValues.github)
         event.preventDefault();
         const username = formValues.github
@@ -73,6 +73,10 @@ const Content = () => {
         // always executed, which could be a redirect to the homepage
         });
         console.log(initialValues.github)
+    }
+    else{
+      console.log("not tere")
+    }
     }
     return (
       <div className="login-box">

@@ -28,17 +28,18 @@ export const SendFellow = async(provider, name, github_username, pod_number, pod
     const fellow = web3.Keypair.generate()
 
     // 3. Send a "SendFellow" instruction with the right data and the right accounts.
-    await program.value.rpc.sendFellow(name, github_username, pod_number, pod_name, project, picture_link, {
-        accounts: {
-            author: program.value.provider.value.wallet.publicKey,
+    await program.methods.sendFellow(name, github_username, pod_number, pod_name, project, picture_link)
+        .accounts({
+            author: program.provider.wallet.publicKey,
             fellow: fellow.publicKey,
             systemProgram: web3.SystemProgram.programId,
-        },
-        signers: [fellow]
-    })
+        })
+        .signers([fellow])
+        .rpc()
+
 
     // 4. Fetch the newly created account from the blockchain.
-    const fellowAccount = await program.value.account.fellow.fetch(fellow.publicKey)
+    const fellowAccount = await program.account.fellow.fetch(fellow.publicKey)
     console.log(fellowAccount)
     console.log(new Fellow(fellow.publicKey, fellowAccount))
 
