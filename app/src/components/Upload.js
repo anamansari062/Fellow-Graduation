@@ -1,10 +1,20 @@
-import React,{ useState } from "react";
+import React,{ useState, useMemo } from "react";
 import './Upload.css';
+import { SendFellow } from '../api/send-fellow'
+import Context from "./Context"
 // import { useHistory } from "react-router-dom";
-
 const axios = require('axios').default;
 
-export default function Upload() {
+const Profile = () => {
+    return (
+    <Context>
+            <Content/>
+            </Context>
+    );
+};
+export default Profile;
+
+const Content = () => {
 
   // const history = useHistory();
 
@@ -29,13 +39,14 @@ export default function Upload() {
          .then(function (response) {
          // handle success
            console.log(response);
-           function verifyOrg(org) {
+            function verifyOrg(org) {
              return org.login === "MLH-Fellowship"
            }
             if (response.data.some(verifyOrg)) {
               console.log("You're in!")
+              const fellow = SendFellow(formValues.name, username, formValues.pod, formValues.pname, formValues.proj, formValues.plink)
+              console.log(fellow)
               window.location.href="https://opensea.io/collection/mlhfellowship-grads"
-              
               // Redirect to the nft page
             }
             else {

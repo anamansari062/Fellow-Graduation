@@ -8,8 +8,10 @@ import Buy from './pages/Buy';
 import AR from './components/AR';
 import MintNFT from './components/MintNFT';
 import SendSol from './components/SendSol';
+
 function App() {
   return (
+    
     <BrowserRouter>
     <NavBar/>
       <Switch>
@@ -23,6 +25,7 @@ function App() {
       {/* <Route component={Error} path='*'/> */}
       </Switch>
     </BrowserRouter>
+    
   );
 }
 
