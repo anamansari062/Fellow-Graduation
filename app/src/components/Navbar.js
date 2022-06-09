@@ -33,14 +33,14 @@ export default function NavBar() {
             <div className='navbar-container'>
               <a href="/" className='navbar-logo'>
                 MLH Grads
-                <i class='fab fa-typo3' />
+                <i className='fab fa-typo3' />
               </a>
               <div className='menu-icon'>
                 <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
               </div>
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li className='nav-item'>
-                  <a href="/" exact className='nav-links'>
+                  <a href="/" className='nav-links'>
                     Home
                   </a>
                 </li>

@@ -203,3 +203,12 @@ html {
     right: 40%;
     
   }
+
+  .common{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: relative;
+    top: 15px;
+    left: -130px;
+  }
