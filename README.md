@@ -14,7 +14,6 @@ MLH Grads is a decentralised application (dApp) that makes it simple to create y
 
 
 <br></br>
-<br></br>
 
 ## What it does :
 - Users may log in to the app by connecting their wallet. 
