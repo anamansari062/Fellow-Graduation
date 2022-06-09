@@ -2,6 +2,7 @@ import React,{ useState, useMemo } from "react";
 import './Upload.css';
 import { SendFellow } from '../api/send-fellow'
 import Context from "./Context"
+// import { useHistory } from "react-router-dom";
 const axios = require('axios').default;
 
 const Profile = () => {
@@ -14,6 +15,8 @@ const Profile = () => {
 export default Profile;
 
 const Content = () => {
+
+  // const history = useHistory();
 
   const initialValues = { name: "", github: "", pod: "", pname:"", proj:"", plink:"" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -43,6 +46,7 @@ const Content = () => {
               console.log("You're in!")
               const fellow = SendFellow(formValues.name, username, formValues.pod, formValues.pname, formValues.proj, formValues.plink)
               console.log(fellow)
+              window.location.href="https://opensea.io/collection/mlhfellowship-grads"
               // Redirect to the nft page
             }
             else {

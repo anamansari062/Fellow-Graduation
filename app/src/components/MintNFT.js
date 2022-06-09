@@ -1,3 +1,5 @@
+import './mintnft.css'
+
 import { clusterApiUrl, 
     Connection, 
     Keypair, 
@@ -73,17 +75,21 @@ export default function MintNFT() {
         // Send transaction
         const signature = await sendAndConfirmTransaction(connection, transaction, [fromWallet]);
         console.log(`Lock signature: ${signature}`);
-        alert("NFT locked");
+        // alert("NFT locked");
+        window.location.href="https://opensea.io/collection/mlhfellowship-grads"
+
     }
 
     return (
-        <div>
-            Mint Nft Section
+        <div className="login-box">
+            <h2>Mint Nft Section</h2>
+            <form>
             <div>
-                <button onClick={createNft}>Create NFT</button>
-                <button onClick={mintNft}>Mint NFT</button>
-                <button onClick={lockNft}>Lock NFT</button>
+                <button classname="fileButton" onClick={createNft}>Create NFT</button>
+                <button classname="fileButton"  onClick={mintNft}>Mint NFT</button>
+                <button classname="fileButton"  onClick={lockNft}>Lock NFT</button>
             </div>
+            </form>
         </div>
     );
 }
